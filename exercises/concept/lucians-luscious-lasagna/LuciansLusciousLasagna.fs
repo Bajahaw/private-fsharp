@@ -1,9 +1,13 @@
 module LuciansLusciousLasagna
 
-// TODO: define the 'expectedMinutesInOven' binding
+// DID: define the 'expectedMinutesInOven' binding
+let expectedMinutesInOven = 40u
 
-// TODO: define the 'remainingMinutesInOven' function
+// DID: define the 'remainingMinutesInOven' function
+let remainingMinutesInOven x = 40 - x
 
-// TODO: define the 'preparationTimeInMinutes' function
+// DID: define the 'preparationTimeInMinutes' function
+let preparationTimeInMinutes x = 2 * x
 
-// TODO: define the 'elapsedTimeInMinutes' function
+// DID: define the 'elapsedTimeInMinutes' function
+let elapsedTimeInMinutes x y = 2 * x + y
