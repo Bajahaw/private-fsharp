@@ -1,25 +1,53 @@
 module Bandwagoner
 
-// TODO: please define the 'Coach' record type
+// DID: please define the 'Coach' record type
+type Coach =
+   {
+      Name: string
+      FormerPlayer: bool
+   }
 
-// TODO: please define the 'Stats' record type
+// DID: please define the 'Stats' record type
+type Stats =
+   {
+      Wins: int
+      Losses: int
+   }
 
-// TODO: please define the 'Team' record type
+// DID: please define the 'Team' record type
+type Team =
+   {
+      Name: string
+      Coach: Coach
+      Stats: Stats
+   }
 
 let createCoach (name: string) (formerPlayer: bool): Coach =
-    failwith "Please implement the 'createCoach' function"
-
+    let Coach: Coach =
+       {
+         Name = name
+         FormerPlayer = formerPlayer
+       }
+    Coach
 let createStats(wins: int) (losses: int): Stats =
-   failwith "Please implement the 'createStats' function"
+   { Wins = wins; Losses = losses }
 
 let createTeam(name: string) (coach: Coach)(stats: Stats): Team =
-  failwith "Please implement the 'createTeam' function"
+  {
+      Name = name
+      Coach = coach
+      Stats = stats
+  }
 
 let replaceCoach(team: Team) (coach: Coach): Team =
-   failwith "Please implement the 'replaceCoach' function"
-
+   { team with Coach = coach }
+   
 let isSameTeam(homeTeam: Team) (awayTeam: Team): bool =
-   failwith "Please implement the 'isSameTeam' function"
+   homeTeam.Equals awayTeam
 
 let rootForTeam(team: Team): bool =
-   failwith "Please implement the 'rootForTeam' function"
+   match team with
+   | team when team.Name = "Chicago Bulls" -> true
+   | team when team.Coach.Name = "Gregg Popovich" || team.Coach.FormerPlayer -> true
+   | team when team.Stats.Wins >= 60 || team.Stats.Losses > team.Stats.Wins -> true
+   | _ -> false
